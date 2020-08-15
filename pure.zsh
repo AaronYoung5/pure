@@ -226,6 +226,8 @@ prompt_pure_precmd() {
 
 	if [ -f /.dockerenv ]; then
 		echo test2
+		export VIRTUAL_ENV=test
+		echo "${VIRTUAL_ENV:t}"
 		pasvar[12]="docker"
 		export VIRTUAL_ENV_DISABLE_PROMPT=12
 	fi
