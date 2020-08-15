@@ -216,9 +216,9 @@ prompt_pure_precmd() {
 		psvar[12]="${CONDA_DEFAULT_ENV//[$'\t\r\n']}"
 	fi
 	if [ -f /.dockerenv ]; then
-		export VIRTUAL_ENV="docker"
+		# export VIRTUAL_ENV="docker"
 		echo "${CONDA_DEFAULT_ENV//[$'\t\r\n']}test"
-		psvar[12]="${CONDA_DEFAULT_ENV//[$'\t\r\n']}"
+		psvar[12]="${CONDA_DEFAULT_ENV//[$'\t\r\n']}test"
 	fi
 	# When VIRTUAL_ENV_DISABLE_PROMPT is empty, it was unset by the user and
 	# Pure should take back control.
