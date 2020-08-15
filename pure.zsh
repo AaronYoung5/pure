@@ -222,14 +222,8 @@ prompt_pure_precmd() {
 		export VIRTUAL_ENV_DISABLE_PROMPT=12
 	fi
 
-	echo test1
-
 	if [ -f /.dockerenv ]; then
-		echo test2
-		export VIRTUAL_ENV=test
-		echo "${VIRTUAL_ENV:t}"
-		pasvar[12]="${VIRTUAL_ENV:t}"
-		export VIRTUAL_ENV_DISABLE_PROMPT=12
+		pasvar[12]="docker"
 	fi
 
 	# Make sure VIM prompt is reset.
