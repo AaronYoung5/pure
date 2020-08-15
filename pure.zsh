@@ -215,15 +215,14 @@ prompt_pure_precmd() {
 	if [[ -n $CONDA_DEFAULT_ENV ]]; then
 		psvar[12]="${CONDA_DEFAULT_ENV//[$'\t\r\n']}"
 	fi
+	if [ -f /.dockerenv ]; then
+		# export VIRTUAL_ENV="docker"
+		psvar[12]="${CONDA_DEFAULT_ENV//[$'\t\r\n']}"
+	fi
 	# When VIRTUAL_ENV_DISABLE_PROMPT is empty, it was unset by the user and
 	# Pure should take back control.
 	if [[ -n $VIRTUAL_ENV ]] && [[ -z $VIRTUAL_ENV_DISABLE_PROMPT || $VIRTUAL_ENV_DISABLE_PROMPT = 12 ]]; then
 		psvar[12]="${VIRTUAL_ENV:t}"
-		export VIRTUAL_ENV_DISABLE_PROMPT=12
-	fi
-
-	if [ -f /.dockerenv ]; then
-		pasvar[12]="docker"
 		export VIRTUAL_ENV_DISABLE_PROMPT=12
 	fi
 
