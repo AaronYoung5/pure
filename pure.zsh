@@ -224,6 +224,7 @@ prompt_pure_precmd() {
 
 	if [ -f /.dockerenv ]; then
 		pasvar[12]="docker"
+		export VIRTUAL_ENV_DISABLE_PROMPT=12
 	fi
 
 	# Make sure VIM prompt is reset.
